@@ -7,6 +7,36 @@ public class Program {
 
 	public static void main(String[] args) {
 		
+		
+		// Obtendo informações do caminho do arquivo
+		
+		// Atributos
+		
+		Scanner sc = new Scanner(System.in);         // Criando leitura via teclado
+		System.out.println("Enter a file path: "); 		
+		String strPath = sc.nextLine();   // Lendo a linha
+		
+		File path = new File(strPath);   // pega somente o nome do arquivo desprezando o caminho
+		
+		System.out.println("getName: " + path.getName()); // Imprime somente o nome do arquivo
+		
+		// Mostrar apenas o caminho
+		System.out.println("getParent: " + path.getParent()); // Imprime somente o caminho do arquivo
+		
+		// Mostrar todo o caminho
+		System.out.println("getPah: " + path.getPath()); // Mostra o caminho completo 
+		
+		
+		sc.close();
+	}
+}
+		
+		
+		
+		
+		
+		/* **********************************************************************************************
+		
 		// Manipulando pastas com File
 		
 		
