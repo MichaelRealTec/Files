@@ -7,7 +7,36 @@ import java.io.IOException;
 public class Program {
 
 	public static void main(String[] args) {
+		// Bloco try-with-resources
+		 // É um bloco try que declara um ou mais recursos, e garante que esses recursos serão fechados ao final do bloco
+		  // ( fecha automaticamente as Streams
+		
+		//Atributos
+		String path = "c:\\temp\\in.txt";
+		
+		
+		
+		// FileReader (Stream (sequencia) de leitura de caractres a partir de arquivos)
+		// BufferedReader (mais rápido)
 
+		try (BufferedReader br = new BufferedReader(new FileReader(path))){
+				// ou br = new BufferedReader(new FileReader(path));
+
+			String line = br.readLine(); // vai ler uma linha do arquivo e se o arquivo estiver no final retornará nulo
+	
+			while (line != null) {
+				System.out.println(line);
+				line = br.readLine();
+			}
+		}
+		catch(IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+	}
+}	
+		/* ****************************************************************************************
+		
 		// Processo para mostrar como funciona manualmente as Streams
 
 		// Atributos
@@ -45,7 +74,7 @@ public class Program {
 		}
 	}
 
-	/*
+
 	 * Lendo arquivo texto com classes Scanner sc = null; File file = new
 	 * File("c:\\temp\\in.txt"); try { sc = new Scanner(file); while
 	 * (sc.hasNextLine()) { // TESTAR PARA VER SE EXISTE UMA NOVA LINHA NO ARQUIVO
@@ -58,7 +87,9 @@ public class Program {
 	 * }
 	 * 
 	 * }
-	 */
+	 
 	// FileReader (Stream (sequencia) de leitura de caractres a partir de arquivos)
 	// BufferedReader (mais rápido)
-}
+		
+		*/
+
