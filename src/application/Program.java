@@ -1,12 +1,46 @@
 package application;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Program {
 
 	public static void main(String[] args) {
+		
+		// FileWrites ( Stream de escrita de caracteres em arquivos )
+			// Cria / recria o arquivo: new FileWriter(path) (observação: este comando apaga o arquivo e começa escrever ou cria do zero caso não exista.)
+		    // Acrescednta ao arquivo existente: new FileWriter(path, true) (observação: este comando acrescenta linhas ao final do arquivo)
+		
+		// BufferedWriter (mais rápido) trabalha com cache no buffer
+		
+				
+		// Atributos
+		String[] lines = new String[] {"Good morning", "Good afternoon", "Good night"};
+		
+		
+		String path = "c:\\temp\\out.txt";
+		
+		try(BufferedWriter bw = new BufferedWriter(new FileWriter(path, true))){
+			for(String line : lines) {
+				bw.write(line);
+				bw.newLine();
+			}
+			
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+					
+	}
+	
+}
+		
+		
+		/* ******************************************************************************************************
+		
+		
+		
 		// Bloco try-with-resources
 		 // É um bloco try que declara um ou mais recursos, e garante que esses recursos serão fechados ao final do bloco
 		  // ( fecha automaticamente as Streams
