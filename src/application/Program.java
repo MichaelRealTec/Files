@@ -1,12 +1,62 @@
 package application;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
 
 public class Program {
 
 	public static void main(String[] args) {
+		
+		// Manipulando pastas com File
+		
+		
+		// Atributos
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a folder path: ");
+		String strPath = sc.nextLine();
+		
+		File path = new File(strPath);
+		
+		File[] folders = path.listFiles(File::isDirectory); // Vai criar um vetor de files contendo cada caminho das pastas 
+		System.out.println("FOLDERS:");
+		for (File folder : folders) {    // Lista as pastas do caminho escolhido
+			System.out.println(folder); // mostra na tela as pastas
+		}
+		
+		// Agora quero saber os arquivos dentro da pasta especificada
+		File[] files = path.listFiles(File::isFile); // Lista os arquivos do caminho escolhido
+		System.out.println("FILES:");
+		
+		for (File file : files) {
+			System.out.println(file); // mostra na tela os arquivos
+		}
+		
+		// Criar uma subpasta a partir da pasta temp
+		boolean success = new File(strPath + "\\subdir").mkdir();  // Criou a subpast subdir dentro do camiho especificado
+		System.out.println("Directory created succesfully: " + success);  
+		
+		sc.close();
+	}
+	
+}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/* *********************************************************************************************************
+		
 		
 		// FileWrites ( Stream de escrita de caracteres em arquivos )
 			// Cria / recria o arquivo: new FileWriter(path) (observação: este comando apaga o arquivo e começa escrever ou cria do zero caso não exista.)
