@@ -12,17 +12,20 @@ public class Program {
 		File file = new File("c:\\temp\\in.txt");
 		try {
 			sc = new Scanner(file);
-			while (sc.hasNextLine()) {
+			while (sc.hasNextLine()) {   // TESTAR PARA VER SE EXISTE UMA NOVA LINHA NO ARQUIVO
 				System.out.println(sc.nextLine());
 			}
 		}
 
-		catch (IOException e) {
+		catch (IOException e) {  // Se aparecer alguma exceção
 			System.out.println("Error: " + e.getMessage());
 		}
 		finally {
 			// Finalizando o Scanner sc!
-			sc.close();
+			if (sc != null) {
+				sc.close();
+			}
+	
 		}
 
 	}
